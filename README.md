@@ -1,5 +1,4 @@
 using System;
-
 namespace BinarySearchDemonstrator
 {
     internal class Program
