@@ -1,76 +1,11 @@
-using System;
-using static System.Console;
+# Interactive Binary Search Demonstrator
 
-namespace Guess_Number
-{
-    internal class Program
-    {
-        static Random randomNumbers = new Random();
-        static int answer;
-        static int guesses;
-        static void Main(string[] args)
-        {
-            {
-                int userGuess; // the number a user guesses
+**Overview:** Developed a modular C# console application that demonstrates logarithmic time complexity through an interactive user feedback loop. The application utilizes a binary search methodology to prove that a specific data point out of 1,000 possibilities can be efficiently isolated in 10 or fewer iterations.
 
-                newGame();
+**Technical Implementations & Business Logic:**
+* **Modular Architecture:** Engineered the application using object-oriented principles, dividing the core logic across multiple distinct methods to ensure code scalability and readability.
+* **Dynamic Feedback Loop:** Implemented conditional routing to evaluate user input in real-time, providing immediate directional feedback to optimize the search path.
+* **Performance Tracking:** Built an internal state tracker to monitor iteration counts, outputting performance metrics that compare the user's execution against the mathematically optimal 10-step threshold.
+* **Randomized Data Generation:** Utilized the .NET `Random` class to generate unpredictable target variables for each application lifecycle.
 
-                Write("Guess (0 to exit): ");
-                userGuess = Convert.ToInt32(Console.ReadLine());
-
-                while (userGuess != 0)
-                {
-                    guesses++;
-                    CheckStatus(userGuess);
-
-                    Write("Guess (0 to exit): ");
-                    userGuess = Convert.ToInt32(Console.ReadLine());
-                }
-            }
-
-            static void newGame()
-            {
-                answer = randomNumbers.Next(1, 1001);
-                guesses = 0;
-                WriteLine("Guess a number between 1 and 1000");
-            }
-
-            static void CheckStatus(int guess)
-            {
-                if (guess > answer)   //  too high
-                {
-                    WriteLine($"{guess} is too high. Try again.");
-                }
-                else if (guess < answer)  // too low
-                {
-                    WriteLine($"{guess} is too low. Try again.");
-                }
-                else   // the right number
-                {
-                    WriteLine("Congratulations. You guessed the number!");
-                    DisplayMessage();
-                    newGame(); // Start a new game here
-                }
-            }
-
-            static void DisplayMessage()
-            {
-                WriteLine($"You guessed the number in {guesses} tries");
-
-                if (guesses < 10)
-                {
-                    WriteLine("Either you know the secret or you got lucky!");
-                }
-                else if (guesses == 10)
-                {
-                    WriteLine("Aha! You know the secret!");
-                }
-                else
-                {
-                    WriteLine("You should be able to do better!");
-                }
-            }
-        }
-
-    }
-}
+**Tech Stack:** C#, .NET, Object-Oriented Programming (OOP)
